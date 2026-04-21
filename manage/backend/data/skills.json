@@ -1,0 +1,47 @@
+[
+  {
+    "name": "React",
+    "category": "frontend",
+    "level": 100
+  },
+  {
+    "name": "TypeScript",
+    "category": "frontend",
+    "level": 100
+  },
+  {
+    "name": "Tailwind CSS",
+    "category": "frontend",
+    "level": 41
+  },
+  {
+    "name": "Node.js",
+    "category": "backend",
+    "level": 100
+  },
+  {
+    "name": "FastAPI",
+    "category": "backend",
+    "level": 100
+  },
+  {
+    "name": "PostgreSQL",
+    "category": "backend",
+    "level": 100
+  },
+  {
+    "name": "Docker",
+    "category": "tools",
+    "level": 100
+  },
+  {
+    "name": "Git",
+    "category": "tools",
+    "level": 100
+  },
+  {
+    "name": "AWS",
+    "category": "tools",
+    "level": 100
+  }
+]

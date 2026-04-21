@@ -1,0 +1,16 @@
+{
+  "name": "portfolio-backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.4.2",
+    "express": "^4.21.2",
+    "google-auth-library": "^10.6.2",
+    "mongoose": "^9.4.1"
+  }
+}

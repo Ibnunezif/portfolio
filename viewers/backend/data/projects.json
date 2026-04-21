@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "title": "E-commerce Platform",
+    "description": "A full-featured e-commerce site with product search, cart, and payment integration.",
+    "technologies": ["React", "TypeScript", "Node.js", "MongoDB", "Stripe"],
+    "githubUrl": "https://github.com",
+    "liveUrl": "https://example.com"
+  },
+  {
+    "id": 2,
+    "title": "AI Image Generator",
+    "description": "An application that generates unique images from text prompts using a custom model.",
+    "technologies": ["React", "TypeScript", "Python", "FastAPI", "OpenAI API"],
+    "githubUrl": "https://github.com"
+  },
+  {
+    "id": 3,
+    "title": "Task Management CLI",
+    "description": "A powerful CLI tool for managing personal tasks and project workflows.",
+    "technologies": ["TypeScript", "Node.js", "Commander.js"],
+    "githubUrl": "https://github.com"
+  }
+]
