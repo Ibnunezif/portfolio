@@ -128,7 +128,7 @@ async function verifyToken(req, res, next) {
 }
 
 // Upload endpoint
-app.post('/api/upload', verifyToken, upload.single('image'), (req, res) => {
+app.post('/api/upload', upload.single('image'), (req, res) => {
   if (!req.file) return res.status(400).json({ error: 'No file uploaded' });
   res.json({ url: req.file.path });
 });
