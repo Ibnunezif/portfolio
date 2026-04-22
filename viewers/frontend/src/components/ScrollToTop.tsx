@@ -29,7 +29,7 @@ const ScrollToTop: React.FC = () => {
       onClick={scrollToTop}
       className={`fixed bottom-8 right-8 p-3 rounded-full shadow-lg transition-all duration-300 z-50 
         ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
-        bg-gradient-to-tr from-[#7A3CED] to-[#0DA2E5] hover:scale-110`}
+        bg-gradient-to-tr from-[#7A3CED] to-[#1B9FE5] hover:scale-110`}
       aria-label="Scroll to top"
     >
       <svg 

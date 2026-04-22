@@ -6,6 +6,7 @@ import Skills from './components/Skills';
 import TechStack from './components/TechStack';
 import Experience from './components/Experience';
 import Education from './components/Education';
+import Testimonials from './components/Testimonials';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -13,10 +14,10 @@ import ScrollToTop from './components/ScrollToTop';
 
 const Portfolio: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white selection:bg-[#0DB5E5] selection:text-white relative overflow-hidden">
+    <div className="min-h-screen bg-white selection:bg-[#1B9FE5] selection:text-white relative overflow-hidden">
       {/* Global Animated Background Blobs */}
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-0">
-        <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-[#0DB5E5]/10 rounded-full blur-[120px] animate-float"></div>
+        <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-[#1B9FE5]/10 rounded-full blur-[120px] animate-float"></div>
         <div className="absolute bottom-[20%] left-[-5%] w-[400px] h-[400px] bg-purple-100/40 rounded-full blur-[100px] animate-float-delayed"></div>
         <div className="absolute top-[40%] right-[15%] w-[300px] h-[300px] bg-green-100/30 rounded-full blur-[80px] animate-float-slow"></div>
       </div>
@@ -34,6 +35,7 @@ const Portfolio: React.FC = () => {
           <TechStack />
           <Experience />
           <Education />
+          <Testimonials />
           <Projects />
           <Contact />
         </div>

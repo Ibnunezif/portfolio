@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import abdulbasitImg from '../assets/Abdulbasit.jpg';
 import { SiLeetcode } from 'react-icons/si';
 
 const Hero: React.FC = () => {
+  const [cvUrl, setCvUrl] = useState('#');
+
+  useEffect(() => {
+    fetch('http://localhost:3002/api/cv')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && data.cvUrl) {
+          setCvUrl(data.cvUrl);
+        }
+      })
+      .catch((err) => console.error('Failed to fetch CV URL', err));
+  }, []);
+
   return (
     <section id="about" className="relative py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -12,7 +25,7 @@ const Hero: React.FC = () => {
           <div className="lg:w-1/2 flex justify-center">
             <div className="relative">
               {/* Glow Effect */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#7A3CED] to-[#0DA2E5] blur-2xl opacity-15 scale-110"></div>
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#7A3CED] to-[#1B9FE5] blur-2xl opacity-15 scale-110"></div>
               <div className="relative w-56 h-56 sm:w-64 sm:h-64 lg:w-[350px] lg:h-[350px] rounded-full shadow-xl flex items-center justify-center overflow-hidden border border-white/40">
                 <img 
                   src={abdulbasitImg} 
@@ -30,7 +43,7 @@ const Hero: React.FC = () => {
             </div>
             
             <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
-              <span className="bg-gradient-to-r from-[#7A3CED] to-[#0DA2E5] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#7A3CED] to-[#1B9FE5] bg-clip-text text-transparent">
                 Abdulbasit Nezif
               </span>
             </h1>
@@ -40,20 +53,22 @@ const Hero: React.FC = () => {
             </h2>
 
             <p className="text-base text-gray-600 max-w-xl leading-relaxed">
-              I specialize in <span className="font-bold text-[#0DB5E5]">modern web technologies</span>. 
-              I architect scalable <span className="font-bold text-[#0DB5E5]">backend systems</span> and build intuitive 
-              <span className="font-bold text-[#0DB5E5]">frontend experiences</span>.
+              I specialize in <span className="font-bold text-[#1B9FE5]">modern web technologies</span>. 
+              I architect scalable <span className="font-bold text-[#1B9FE5]">backend systems</span> and build intuitive 
+              <span className="font-bold text-[#1B9FE5]">frontend experiences</span>.
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 pt-2">
               <a
                 href="#contact"
-                className="px-6 py-2.5 bg-[#0DB5E5] text-white font-bold rounded-lg shadow-md shadow-[#0DB5E5]/30 hover:scale-105 transition-all text-sm"
+                className="px-6 py-2.5 bg-[#1B9FE5] text-white font-bold rounded-lg shadow-md shadow-[#1B9FE5]/30 hover:scale-105 transition-all text-sm"
               >
                 Contact Me
               </a>
               <a
-                href="#"
+                href={cvUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-6 py-2.5 border border-gray-200 text-gray-700 font-bold rounded-lg hover:bg-white transition-all text-sm bg-white/50"
               >
                 Download CV

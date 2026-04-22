@@ -1,31 +1,28 @@
 import React, { useEffect, useRef, useState } from 'react';
 
+interface EducationData {
+  _id: string;
+  institution: string;
+  degree: string;
+  duration: string;
+  location: string;
+  points: string[];
+  order: number;
+}
+
 const Education: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [education, setEducation] = useState<EducationData[]>([]);
   const sectionRef = useRef<HTMLElement>(null);
 
-  const education = [
-    {
-      institution: 'Adama Science and Technology University',
-      degree: "Bachelor's Degree in Software Engineering",
-      duration: '2023 – 2027',
-      location: 'Adama, Ethiopia',
-      points: [
-        'CGPA: 3.71/4.0',
-        'Relevant courses: Software Architecture and Design, Database Systems, Computer Networking, Web Development, Mobile Application Development, Operating Systems'
-      ],
-    },
-    {
-      institution: 'Africa to Silicon Valley (A2SV)',
-      degree: 'Data Structures and Algorithms',
-      duration: 'One-year training',
-      location: 'In-person · Adama, Ethiopia',
-      points: [
-        'Completed a year-long competitive programming training, solving 1000+ problems on LeetCode, Codeforces and HackerRank.',
-        'Developed advanced problem-solving skills and deepened understanding of complex data structures and algorithmic paradigms.'
-      ],
-    },
-  ];
+  useEffect(() => {
+    fetch('http://localhost:3002/api/education')
+      .then(res => res.json())
+      .then(data => {
+        setEducation(data);
+      })
+      .catch(err => console.error('Error fetching education:', err));
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,18 +43,18 @@ const Education: React.FC = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [education]);
 
   return (
     <section id="education" ref={sectionRef} className="py-24 bg-white overflow-hidden border-t border-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-center mb-20">
           <div className="flex items-center gap-4 mb-4">
-            <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-50 text-sm font-bold text-[#0DB5E5] shadow-sm border border-[#0DB5E5]/20 uppercase tracking-wider">
+            <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-50 text-sm font-bold text-[#1B9FE5] shadow-sm border border-[#1B9FE5]/20 uppercase tracking-wider">
               ACADEMIC BACKGROUND
             </div>
             <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
-              <span className="bg-gradient-to-r from-[#7A3CED] to-[#0DA2E5] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#7A3CED] to-[#1B9FE5] bg-clip-text text-transparent">
                 Education
               </span>
             </h2>
@@ -70,7 +67,7 @@ const Education: React.FC = () => {
           
           {/* Progress Line */}
           <div 
-            className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-0 w-px bg-gradient-to-b from-[#7A3CED] to-[#0DA2E5] origin-top transition-all duration-300 ease-out"
+            className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-0 w-px bg-gradient-to-b from-[#7A3CED] to-[#1B9FE5] origin-top transition-all duration-300 ease-out"
             style={{ height: `${scrollProgress}%` }}
           ></div>
 
@@ -81,7 +78,7 @@ const Education: React.FC = () => {
 
               return (
                 <div 
-                  key={idx} 
+                  key={edu._id} 
                   className={`relative flex flex-col md:flex-row transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
                 >
                   {/* Timeline dot */}
@@ -99,7 +96,7 @@ const Education: React.FC = () => {
                         {edu.degree}
                       </h3>
                       <div className={`flex items-center gap-2 text-gray-500 font-medium ${idx % 2 === 0 ? '' : 'md:justify-end'}`}>
-                        <svg className="w-4 h-4 text-[#0DB5E5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4 text-[#1B9FE5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                         </svg>
                         At <span className="text-[#7A3CED]">{edu.institution}</span> · {edu.location}

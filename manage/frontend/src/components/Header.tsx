@@ -6,7 +6,7 @@ const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <span className="text-2xl font-bold text-blue-500">Portfolio Admin</span>
+            <span className="text-2xl font-bold text-[#1B9FE5]">Portfolio Admin</span>
           </div>
         </div>
       </div>

@@ -1,48 +1,28 @@
 import React, { useEffect, useRef, useState } from 'react';
 
+interface ExperienceData {
+  _id: string;
+  company: string;
+  role: string;
+  duration: string;
+  location: string;
+  points: string[];
+  order: number;
+}
+
 const Experience: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [experiences, setExperiences] = useState<ExperienceData[]>([]);
   const sectionRef = useRef<HTMLElement>(null);
-  const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
 
-  const experiences = [
-    {
-      company: 'Company Name',
-      role: 'Senior Software Engineer',
-      duration: '2023 - Present',
-      location: 'Remote',
-      points: [
-        'Led a team of engineers in developing scalable web applications using modern technologies.',
-        'Architected and implemented complex backend systems with a focus on performance and security.',
-        'Collaborated with cross-functional teams to define project requirements and deliver high-quality solutions.',
-        'Mentored junior developers and conducted thorough code reviews to maintain high engineering standards.'
-      ],
-    },
-    {
-      company: 'Tech Solutions Inc.',
-      role: 'Full Stack Developer',
-      duration: '2021 - 2023',
-      location: 'New York, USA',
-      points: [
-        'Developed and maintained multiple client-facing applications using React, Node.js, and PostgreSQL.',
-        'Optimized application performance, resulting in a 30% reduction in load times.',
-        'Implemented automated testing suites to ensure software reliability and reduce regression bugs.',
-        'Integrated third-party APIs and services to enhance application functionality.'
-      ],
-    },
-    {
-      company: 'StartUp Hub',
-      role: 'Frontend Developer',
-      duration: '2019 - 2021',
-      location: 'Remote',
-      points: [
-        'Built responsive and intuitive user interfaces using React and Tailwind CSS.',
-        'Worked closely with designers to translate wireframes into high-fidelity code.',
-        'Improved frontend state management using Redux and Context API.',
-        'Participated in agile ceremonies and contributed to continuous process improvements.'
-      ],
-    },
-  ];
+  useEffect(() => {
+    fetch('http://localhost:3002/api/experiences')
+      .then(res => res.json())
+      .then(data => {
+        setExperiences(data);
+      })
+      .catch(err => console.error('Error fetching experiences:', err));
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,7 +31,6 @@ const Experience: React.FC = () => {
       const rect = sectionRef.current.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
       
-      // Calculate progress more precisely for the timeline
       const distanceScrolled = viewportHeight / 2 - rect.top;
       let progress = (distanceScrolled / rect.height) * 100;
       
@@ -64,18 +43,18 @@ const Experience: React.FC = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [experiences]); // Re-calculate if experiences change
 
   return (
     <section id="experience" ref={sectionRef} className="py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-center mb-20">
           <div className="flex items-center gap-4 mb-4">
-            <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-50 text-sm font-bold text-[#0DB5E5] shadow-sm border border-[#0DB5E5]/20 uppercase tracking-wider">
+            <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-50 text-sm font-bold text-[#1B9FE5] shadow-sm border border-[#1B9FE5]/20 uppercase tracking-wider">
               MY JOURNEY
             </div>
             <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
-              <span className="bg-gradient-to-r from-[#7A3CED] to-[#0DA2E5] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#7A3CED] to-[#1B9FE5] bg-clip-text text-transparent">
                 Experience
               </span>
             </h2>
@@ -88,7 +67,7 @@ const Experience: React.FC = () => {
           
           {/* Progress Line */}
           <div 
-            className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-0 w-px bg-gradient-to-b from-[#7A3CED] to-[#0DA2E5] origin-top transition-all duration-300 ease-out"
+            className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-0 w-px bg-gradient-to-b from-[#7A3CED] to-[#1B9FE5] origin-top transition-all duration-300 ease-out"
             style={{ height: `${scrollProgress}%` }}
           ></div>
 
@@ -99,7 +78,7 @@ const Experience: React.FC = () => {
 
               return (
                 <div 
-                  key={idx} 
+                  key={exp._id} 
                   className={`relative flex flex-col md:flex-row transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
                 >
                   {/* Timeline dot */}
@@ -117,7 +96,7 @@ const Experience: React.FC = () => {
                         {exp.role} · <span className="text-gray-900">{exp.company}</span>
                       </h3>
                       <div className={`flex items-center gap-2 text-gray-500 font-medium ${idx % 2 === 0 ? '' : 'md:justify-end'}`}>
-                        <svg className="w-4 h-4 text-[#0DB5E5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4 text-[#1B9FE5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>

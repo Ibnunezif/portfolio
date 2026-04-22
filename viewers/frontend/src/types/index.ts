@@ -7,6 +7,7 @@ export interface Project {
   githubUrl?: string;
   liveUrl?: string;
   imageUrl?: string;
+  category: 'Web' | 'AI/ML' | 'Open Source' | 'Desktop';
 }
 
 export interface Skill {

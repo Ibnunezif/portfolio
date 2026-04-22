@@ -15,7 +15,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ title, icon, skills }) => {
   return (
     <div className="w-full max-w-xs mx-auto bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group hover:border-transparent">
       {/* Gradient border on hover */}
-      <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:bg-gradient-to-tr group-hover:from-[#7A3CED] group-hover:to-[#0DA2E5] -z-10 p-[2px]">
+      <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:bg-gradient-to-tr group-hover:from-[#7A3CED] group-hover:to-[#1B9FE5] -z-10 p-[2px]">
         <div className="w-full h-full bg-white rounded-[14px]"></div>
       </div>
 
@@ -23,7 +23,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ title, icon, skills }) => {
       <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-50 rounded-full blur-2xl opacity-60"></div>
       
       {/* Category Icon */}
-      <div className="w-16 h-16 bg-blue-50 rounded-xl flex items-center justify-center text-[#0DB5E5] mb-6 border border-[#0DB5E5]/20">
+      <div className="w-16 h-16 bg-blue-50 rounded-xl flex items-center justify-center text-[#1B9FE5] mb-6 border border-[#1B9FE5]/20">
         {icon}
       </div>
       
