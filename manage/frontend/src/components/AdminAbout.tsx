@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Layout from './Layout';
 import Spinner from './Spinner';
+import API_BASE_URL from '../config';
 
 interface Paragraph {
   text: string;
@@ -13,7 +14,7 @@ const AdminAbout: React.FC = () => {
   const textAreaRefs = useRef<(HTMLTextAreaElement | null)[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:3002/api/about')
+    fetch(`${API_BASE_URL}/about`)
       .then((res) => res.json())
       .then((data) => {
         setParagraphs(data.paragraphs || []);
@@ -81,7 +82,7 @@ const AdminAbout: React.FC = () => {
   };
 
   const saveAbout = async () => {
-    await fetch('http://localhost:3002/api/about', {
+    await fetch(`${API_BASE_URL}/about`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ paragraphs }),

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Spinner from './Spinner';
 import Layout from './Layout';
+import API_BASE_URL from '../config';
 
 const AdminCV: React.FC = () => {
   const [cvUrl, setCvUrl] = useState('');
@@ -8,7 +9,7 @@ const AdminCV: React.FC = () => {
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:3002/api/cv')
+    fetch(`${API_BASE_URL}/cv`)
       .then((res) => res.json())
       .then((data) => {
         setCvUrl(data.cvUrl || '');
@@ -17,7 +18,7 @@ const AdminCV: React.FC = () => {
   }, []);
 
   const saveCV = async () => {
-    await fetch('http://localhost:3002/api/cv', {
+    await fetch(`${API_BASE_URL}/cv`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ cvUrl }),

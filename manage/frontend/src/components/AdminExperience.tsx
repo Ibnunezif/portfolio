@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Layout from './Layout';
 import Spinner from './Spinner';
 import type { Experience } from '../types';
+import API_BASE_URL from '../config';
 
 const AdminExperience: React.FC = () => {
   const [experiences, setExperiences] = useState<Experience[]>([]);
@@ -24,7 +25,7 @@ const AdminExperience: React.FC = () => {
 
   const fetchExperiences = () => {
     setLoading(true);
-    fetch('http://localhost:3002/api/experiences')
+    fetch(`${API_BASE_URL}/experiences`)
       .then((res) => res.json())
       .then((data) => {
         setExperiences(data);
@@ -55,8 +56,8 @@ const AdminExperience: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const url = editingId 
-      ? `http://localhost:3002/api/experiences/${editingId}` 
-      : 'http://localhost:3002/api/experiences';
+      ? `${API_BASE_URL}/experiences/${editingId}` 
+      : `${API_BASE_URL}/experiences`;
     const method = editingId ? 'PUT' : 'POST';
 
     await fetch(url, {
@@ -92,7 +93,7 @@ const AdminExperience: React.FC = () => {
 
   const deleteExperience = async (id: string) => {
     if (!window.confirm('Are you sure you want to delete this experience?')) return;
-    await fetch(`http://localhost:3002/api/experiences/${id}`, { method: 'DELETE' });
+    await fetch(`${API_BASE_URL}/experiences/${id}`, { method: 'DELETE' });
     fetchExperiences();
   };
 
@@ -108,12 +109,12 @@ const AdminExperience: React.FC = () => {
 
     // Save both changes
     await Promise.all([
-      fetch(`http://localhost:3002/api/experiences/${newExperiences[index]._id}`, {
+      fetch(`${API_BASE_URL}/experiences/${newExperiences[index]._id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newExperiences[index]),
       }),
-      fetch(`http://localhost:3002/api/experiences/${newExperiences[newIndex]._id}`, {
+      fetch(`${API_BASE_URL}/experiences/${newExperiences[newIndex]._id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newExperiences[newIndex]),

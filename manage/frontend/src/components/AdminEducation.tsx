@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Layout from './Layout';
 import Spinner from './Spinner';
 import type { Education } from '../types';
+import API_BASE_URL from '../config';
 
 const AdminEducation: React.FC = () => {
   const [educationList, setEducationList] = useState<Education[]>([]);
@@ -24,7 +25,7 @@ const AdminEducation: React.FC = () => {
 
   const fetchEducation = () => {
     setLoading(true);
-    fetch('http://localhost:3002/api/education')
+    fetch(`${API_BASE_URL}/education`)
       .then((res) => res.json())
       .then((data) => {
         setEducationList(data);
@@ -55,8 +56,8 @@ const AdminEducation: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const url = editingId 
-      ? `http://localhost:3002/api/education/${editingId}` 
-      : 'http://localhost:3002/api/education';
+      ? `${API_BASE_URL}/education/${editingId}` 
+      : `${API_BASE_URL}/education`;
     const method = editingId ? 'PUT' : 'POST';
 
     await fetch(url, {
@@ -92,7 +93,7 @@ const AdminEducation: React.FC = () => {
 
   const deleteEducation = async (id: string) => {
     if (!window.confirm('Are you sure you want to delete this education entry?')) return;
-    await fetch(`http://localhost:3002/api/education/${id}`, { method: 'DELETE' });
+    await fetch(`${API_BASE_URL}/education/${id}`, { method: 'DELETE' });
     fetchEducation();
   };
 
@@ -108,12 +109,12 @@ const AdminEducation: React.FC = () => {
 
     // Save both changes
     await Promise.all([
-      fetch(`http://localhost:3002/api/education/${newList[index]._id}`, {
+      fetch(`${API_BASE_URL}/education/${newList[index]._id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newList[index]),
       }),
-      fetch(`http://localhost:3002/api/education/${newList[newIndex]._id}`, {
+      fetch(`${API_BASE_URL}/education/${newList[newIndex]._id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newList[newIndex]),

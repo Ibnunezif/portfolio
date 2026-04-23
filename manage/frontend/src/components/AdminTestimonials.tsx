@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Layout from './Layout';
 import Spinner from './Spinner';
 import type { Testimonial } from '../types';
+import API_BASE_URL from '../config';
 
 const AdminTestimonials: React.FC = () => {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
@@ -25,7 +26,7 @@ const AdminTestimonials: React.FC = () => {
 
   const fetchTestimonials = () => {
     setLoading(true);
-    fetch('http://localhost:3002/api/testimonials')
+    fetch(`${API_BASE_URL}/testimonials`)
       .then((res) => res.json())
       .then((data) => {
         setTestimonials(data);
@@ -47,7 +48,7 @@ const AdminTestimonials: React.FC = () => {
     data.append('image', file);
 
     try {
-      const res = await fetch('http://localhost:3002/api/upload', {
+      const res = await fetch(`${API_BASE_URL}/upload`, {
         method: 'POST',
         body: data,
         // In a real app, you'd add Authorization header here
@@ -66,8 +67,8 @@ const AdminTestimonials: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const url = editingId 
-      ? `http://localhost:3002/api/testimonials/${editingId}` 
-      : 'http://localhost:3002/api/testimonials';
+      ? `${API_BASE_URL}/testimonials/${editingId}` 
+      : `${API_BASE_URL}/testimonials`;
     const method = editingId ? 'PUT' : 'POST';
 
     await fetch(url, {
@@ -103,7 +104,7 @@ const AdminTestimonials: React.FC = () => {
 
   const deleteTestimonial = async (id: string) => {
     if (!window.confirm('Are you sure you want to delete this testimonial?')) return;
-    await fetch(`http://localhost:3002/api/testimonials/${id}`, { method: 'DELETE' });
+    await fetch(`${API_BASE_URL}/testimonials/${id}`, { method: 'DELETE' });
     fetchTestimonials();
   };
 
@@ -117,12 +118,12 @@ const AdminTestimonials: React.FC = () => {
     newList[newIndex].order = tempOrder;
 
     await Promise.all([
-      fetch(`http://localhost:3002/api/testimonials/${newList[index]._id}`, {
+      fetch(`${API_BASE_URL}/testimonials/${newList[index]._id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newList[index]),
       }),
-      fetch(`http://localhost:3002/api/testimonials/${newList[newIndex]._id}`, {
+      fetch(`${API_BASE_URL}/testimonials/${newList[newIndex]._id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newList[newIndex]),

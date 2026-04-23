@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Layout from './Layout';
 import Spinner from './Spinner';
 import type { Project } from '../types';
+import API_BASE_URL from '../config';
 
 const AdminProjects: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -28,7 +29,7 @@ const AdminProjects: React.FC = () => {
 
   const fetchProjects = () => {
     setLoading(true);
-    fetch('http://localhost:3002/api/projects')
+    fetch(`${API_BASE_URL}/projects`)
       .then((res) => res.json())
       .then((data) => {
         setProjects(data);
@@ -70,7 +71,7 @@ const AdminProjects: React.FC = () => {
     data.append('image', file);
 
     try {
-      const res = await fetch('http://localhost:3002/api/upload', {
+      const res = await fetch(`${API_BASE_URL}/upload`, {
         method: 'POST',
         body: data
       });
@@ -88,8 +89,8 @@ const AdminProjects: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const url = editingId 
-      ? `http://localhost:3002/api/projects/${editingId}` 
-      : 'http://localhost:3002/api/projects';
+      ? `${API_BASE_URL}/projects/${editingId}` 
+      : `${API_BASE_URL}/projects`;
     const method = editingId ? 'PUT' : 'POST';
 
     await fetch(url, {
@@ -127,7 +128,7 @@ const AdminProjects: React.FC = () => {
 
   const deleteProject = async (id: string) => {
     if (!window.confirm('Are you sure you want to delete this project?')) return;
-    await fetch(`http://localhost:3002/api/projects/${id}`, { method: 'DELETE' });
+    await fetch(`${API_BASE_URL}/projects/${id}`, { method: 'DELETE' });
     fetchProjects();
   };
 
