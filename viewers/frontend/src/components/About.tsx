@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import API_BASE_URL from '../config';
 
 interface Paragraph {
   text: string;
@@ -9,7 +10,7 @@ const About: React.FC = () => {
   const [paragraphs, setParagraphs] = useState<Paragraph[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:3002/api/about')
+    fetch(`${API_BASE_URL}/about`)
       .then((res) => res.json())
       .then((data) => {
         if (data && data.paragraphs) {

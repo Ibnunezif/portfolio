@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import API_BASE_URL from '../config';
 
 interface Testimonial {
   _id: string;
@@ -14,7 +15,7 @@ const Testimonials: React.FC = () => {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:3002/api/testimonials')
+    fetch(`${API_BASE_URL}/testimonials`)
       .then(res => res.json())
       .then(data => {
         setTestimonials(data);

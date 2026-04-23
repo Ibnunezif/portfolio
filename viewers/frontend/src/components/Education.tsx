@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import API_BASE_URL from '../config';
 
 interface EducationData {
   _id: string;
@@ -16,7 +17,7 @@ const Education: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    fetch('http://localhost:3002/api/education')
+    fetch(`${API_BASE_URL}/education`)
       .then(res => res.json())
       .then(data => {
         setEducation(data);

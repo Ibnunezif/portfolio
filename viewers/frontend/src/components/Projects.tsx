@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import API_BASE_URL from '../config';
 import type { Project } from '../types';
 
 const Projects: React.FC = () => {
@@ -8,7 +9,7 @@ const Projects: React.FC = () => {
   const categories: ('All' | 'Web' | 'AI/ML' | 'Open Source' | 'Desktop')[] = ['All', 'Web', 'AI/ML', 'Open Source', 'Desktop'];
 
   useEffect(() => {
-    fetch('http://localhost:3002/api/projects')
+    fetch(`${API_BASE_URL}/projects`)
       .then(res => res.json())
       .then(data => {
         setProjectData(data);

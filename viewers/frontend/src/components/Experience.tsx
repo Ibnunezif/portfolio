@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import API_BASE_URL from '../config';
 
 interface ExperienceData {
   _id: string;
@@ -16,7 +17,7 @@ const Experience: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    fetch('http://localhost:3002/api/experiences')
+    fetch(`${API_BASE_URL}/experiences`)
       .then(res => res.json())
       .then(data => {
         setExperiences(data);

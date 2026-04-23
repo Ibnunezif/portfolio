@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import API_BASE_URL from '../config';
 import abdulbasitImg from '../assets/Abdulbasit.jpg';
 import { SiLeetcode } from 'react-icons/si';
 
@@ -6,7 +7,7 @@ const Hero: React.FC = () => {
   const [cvUrl, setCvUrl] = useState('#');
 
   useEffect(() => {
-    fetch('http://localhost:3002/api/cv')
+    fetch(`${API_BASE_URL}/cv`)
       .then((res) => res.json())
       .then((data) => {
         if (data && data.cvUrl) {
