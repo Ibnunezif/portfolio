@@ -13,6 +13,7 @@ const CV = require('./models/CV');
 const Education = require('./models/Education');
 const Experience = require('./models/Experience');
 const Testimonial = require('./models/Testimonial');
+const Category = require('./models/Category');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -118,6 +119,16 @@ app.get('/api/testimonials', async (req, res) => {
     res.json(testimonials);
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch testimonials' });
+  }
+});
+
+// Public Categories Endpoint
+app.get('/api/categories', async (req, res) => {
+  try {
+    const categories = await Category.find();
+    res.json(categories);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch categories' });
   }
 });
 

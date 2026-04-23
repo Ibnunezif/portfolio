@@ -16,6 +16,7 @@ const About = require('./models/About');
 const Experience = require('./models/Experience');
 const Education = require('./models/Education');
 const Testimonial = require('./models/Testimonial');
+const Category = require('./models/Category');
 
 // ... (existing configuration and endpoints) ...
 
@@ -329,6 +330,35 @@ app.delete('/api/testimonials/:id', async (req, res) => {
     res.json({ message: 'Testimonial deleted successfully' });
   } catch (error) {
     res.status(500).json({ error: 'Failed to delete testimonial' });
+  }
+});
+
+// Category CRUD Endpoints
+app.get('/api/categories', async (req, res) => {
+  try {
+    const categories = await Category.find();
+    res.json(categories);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch categories' });
+  }
+});
+
+app.post('/api/categories', async (req, res) => {
+  try {
+    const category = new Category(req.body);
+    await category.save();
+    res.status(201).json(category);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to create category' });
+  }
+});
+
+app.delete('/api/categories/:id', async (req, res) => {
+  try {
+    await Category.findByIdAndDelete(req.params.id);
+    res.json({ message: 'Category deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to delete category' });
   }
 });
 

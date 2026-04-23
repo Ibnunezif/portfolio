@@ -6,9 +6,11 @@ import API_BASE_URL from '../config';
 
 const AdminProjects: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
+  const [categories, setCategories] = useState<{ _id: string, name: string }[]>([]);
   const [loading, setLoading] = useState(true);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
+  const [newCategoryName, setNewCategoryName] = useState('');
   
   // Form State
   const [formData, setFormData] = useState<Omit<Project, '_id'>>({
@@ -25,6 +27,7 @@ const AdminProjects: React.FC = () => {
 
   useEffect(() => {
     fetchProjects();
+    fetchCategories();
   }, []);
 
   const fetchProjects = () => {
@@ -35,6 +38,36 @@ const AdminProjects: React.FC = () => {
         setProjects(data);
         setLoading(false);
       });
+  };
+
+  const fetchCategories = () => {
+    fetch(`${API_BASE_URL}/categories`)
+      .then((res) => res.json())
+      .then((data) => {
+        setCategories(data);
+        if (data.length > 0 && !editingId) {
+          setFormData(prev => ({ ...prev, category: data[0].name }));
+        }
+      });
+  };
+
+  const addCategory = async () => {
+    if (!newCategoryName.trim()) return;
+    const res = await fetch(`${API_BASE_URL}/categories`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: newCategoryName.trim() })
+    });
+    if (res.ok) {
+      setNewCategoryName('');
+      fetchCategories();
+    }
+  };
+
+  const deleteCategory = async (id: string) => {
+    if (!window.confirm('Delete this category? Projects using it will still show it, but you won\'t be able to select it for new projects.')) return;
+    await fetch(`${API_BASE_URL}/categories/${id}`, { method: 'DELETE' });
+    fetchCategories();
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -155,10 +188,10 @@ const AdminProjects: React.FC = () => {
               name="category" value={formData.category} onChange={handleInputChange}
               className="w-full bg-gray-700 p-2 rounded border border-gray-600 focus:border-[#1B9FE5] outline-none"
             >
-              <option value="Web">Web</option>
-              <option value="AI/ML">AI/ML</option>
-              <option value="Open Source">Open Source</option>
-              <option value="Desktop">Desktop</option>
+              {categories.map(cat => (
+                <option key={cat._id} value={cat.name}>{cat.name}</option>
+              ))}
+              {categories.length === 0 && <option value="Web">Web (Default)</option>}
             </select>
           </div>
           <div>
@@ -242,6 +275,39 @@ const AdminProjects: React.FC = () => {
           )}
         </div>
       </form>
+
+      {/* Category Management Section */}
+      <div className="bg-gray-800 p-6 rounded-lg mb-12 border border-gray-700 shadow-xl">
+        <h3 className="text-xl font-bold mb-6 text-[#1B9FE5]">Manage Categories</h3>
+        <div className="flex gap-4 mb-6">
+          <input 
+            value={newCategoryName} 
+            onChange={(e) => setNewCategoryName(e.target.value)}
+            className="flex-1 bg-gray-700 p-2 rounded border border-gray-600 focus:border-[#1B9FE5] outline-none"
+            placeholder="New Category Name (e.g., Mobile, Cloud)"
+          />
+          <button 
+            onClick={addCategory}
+            className="bg-[#1B9FE5] hover:bg-[#1B9FE5]/80 px-6 py-2 rounded font-bold transition-all"
+          >
+            Add Category
+          </button>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          {categories.map(cat => (
+            <div key={cat._id} className="bg-gray-700 px-4 py-2 rounded-lg border border-gray-600 flex items-center gap-3">
+              <span className="font-medium">{cat.name}</span>
+              <button 
+                onClick={() => deleteCategory(cat._id)}
+                className="text-red-400 hover:text-red-300 font-bold"
+              >
+                ×
+              </button>
+            </div>
+          ))}
+          {categories.length === 0 && <p className="text-gray-500 text-sm italic">No custom categories yet. Using default 'Web'.</p>}
+        </div>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project) => (

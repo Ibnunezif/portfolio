@@ -7,7 +7,7 @@ const projectSchema = new mongoose.Schema({
   githubUrl: String,
   liveUrl: String,
   imageUrl: String,
-  category: { type: String, enum: ['Web', 'AI/ML', 'Open Source', 'Desktop'], default: 'Web' }
+  category: { type: String, default: 'Web' }
 });
 
 module.exports = mongoose.model('Project', projectSchema);
