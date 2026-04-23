@@ -8,6 +8,11 @@ const mongoose = require('mongoose');
 // Models
 const Skill = require('./models/Skill');
 const Project = require('./models/Project');
+const About = require('./models/About');
+const CV = require('./models/CV');
+const Education = require('./models/Education');
+const Experience = require('./models/Experience');
+const Testimonial = require('./models/Testimonial');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -63,6 +68,56 @@ app.get('/api/projects', async (req, res) => {
     res.json(projects);
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch projects' });
+  }
+});
+
+// Public About Endpoint
+app.get('/api/about', async (req, res) => {
+  try {
+    const about = await About.findOne();
+    res.json(about || { paragraphs: [] });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch About content' });
+  }
+});
+
+// Public CV Endpoint
+app.get('/api/cv', async (req, res) => {
+  try {
+    const cv = await CV.findOne();
+    res.json(cv || { cvUrl: '' });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch CV' });
+  }
+});
+
+// Public Experience Endpoint
+app.get('/api/experiences', async (req, res) => {
+  try {
+    const experiences = await Experience.find().sort({ order: 1 });
+    res.json(experiences);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch experiences' });
+  }
+});
+
+// Public Education Endpoint
+app.get('/api/education', async (req, res) => {
+  try {
+    const education = await Education.find().sort({ order: 1 });
+    res.json(education);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch education' });
+  }
+});
+
+// Public Testimonial Endpoint
+app.get('/api/testimonials', async (req, res) => {
+  try {
+    const testimonials = await Testimonial.find().sort({ order: 1 });
+    res.json(testimonials);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch testimonials' });
   }
 });
 
