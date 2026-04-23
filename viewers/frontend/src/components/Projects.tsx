@@ -1,30 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import API_BASE_URL from '../config';
-import type { Project } from '../types';
+import { usePortfolio } from '../context/PortfolioContext';
 
 const Projects: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
-  const [projectData, setProjectData] = useState<Project[]>([]);
-  const [categories, setCategories] = useState<string[]>(['All']);
-
-  useEffect(() => {
-    // Fetch Projects
-    fetch(`${API_BASE_URL}/projects`)
-      .then(res => res.json())
-      .then(data => {
-        setProjectData(data);
-      })
-      .catch(err => console.error('Error fetching projects:', err));
-
-    // Fetch Categories
-    fetch(`${API_BASE_URL}/categories`)
-      .then(res => res.json())
-      .then(data => {
-        const catNames = data.map((c: any) => c.name);
-        setCategories(['All', ...catNames]);
-      })
-      .catch(err => console.error('Error fetching categories:', err));
-  }, []);
+  const { data } = usePortfolio();
+  const projectData = data?.projects || [];
+  const categories = data ? ['All', ...data.categories.map(c => c.name)] : ['All'];
 
   const filteredProjects = activeCategory === 'All' 
     ? projectData 

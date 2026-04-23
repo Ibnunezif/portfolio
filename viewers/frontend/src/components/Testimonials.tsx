@@ -1,27 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import API_BASE_URL from '../config';
-
-interface Testimonial {
-  _id: string;
-  name: string;
-  role: string;
-  content: string;
-  avatar: string;
-  linkedInUrl: string;
-}
+import React, { useState } from 'react';
+import { usePortfolio } from '../context/PortfolioContext';
 
 const Testimonials: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
-
-  useEffect(() => {
-    fetch(`${API_BASE_URL}/testimonials`)
-      .then(res => res.json())
-      .then(data => {
-        setTestimonials(data);
-      })
-      .catch(err => console.error('Error fetching testimonials:', err));
-  }, []);
+  const { data } = usePortfolio();
+  const testimonials = data?.testimonials || [];
 
   const next = () => {
     if (testimonials.length === 0) return;

@@ -1,29 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import API_BASE_URL from '../config';
-
-interface EducationData {
-  _id: string;
-  institution: string;
-  degree: string;
-  duration: string;
-  location: string;
-  points: string[];
-  order: number;
-}
+import { usePortfolio } from '../context/PortfolioContext';
 
 const Education: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [education, setEducation] = useState<EducationData[]>([]);
+  const { data } = usePortfolio();
+  const education = data?.education || [];
   const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    fetch(`${API_BASE_URL}/education`)
-      .then(res => res.json())
-      .then(data => {
-        setEducation(data);
-      })
-      .catch(err => console.error('Error fetching education:', err));
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {

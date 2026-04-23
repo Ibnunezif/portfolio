@@ -1,24 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import API_BASE_URL from '../config';
-
-interface Paragraph {
-  text: string;
-  boldSegments: { start: number; end: number }[];
-}
+import React from 'react';
+import { usePortfolio } from '../context/PortfolioContext';
+import { Paragraph } from '../types';
 
 const About: React.FC = () => {
-  const [paragraphs, setParagraphs] = useState<Paragraph[]>([]);
-
-  useEffect(() => {
-    fetch(`${API_BASE_URL}/about`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data && data.paragraphs) {
-          setParagraphs(data.paragraphs);
-        }
-      })
-      .catch((err) => console.error('Failed to fetch About content', err));
-  }, []);
+  const { data } = usePortfolio();
+  const paragraphs = data?.about.paragraphs || [];
 
   const renderTextWithBold = (para: Paragraph) => {
     if (!para.boldSegments || para.boldSegments.length === 0) return para.text;

@@ -1,21 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import API_BASE_URL from '../config';
+import React from 'react';
+import { usePortfolio } from '../context/PortfolioContext';
 import abdulbasitImg from '../assets/Abdulbasit.jpg';
 import { SiLeetcode } from 'react-icons/si';
 
 const Hero: React.FC = () => {
-  const [cvUrl, setCvUrl] = useState('#');
-
-  useEffect(() => {
-    fetch(`${API_BASE_URL}/cv`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data && data.cvUrl) {
-          setCvUrl(data.cvUrl);
-        }
-      })
-      .catch((err) => console.error('Failed to fetch CV URL', err));
-  }, []);
+  const { data } = usePortfolio();
+  const cvUrl = data?.cv.cvUrl || '#';
 
   return (
     <section id="about" className="relative py-12">

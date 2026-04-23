@@ -132,6 +132,36 @@ app.get('/api/categories', async (req, res) => {
   }
 });
 
+// Single Endpoint for ALL Portfolio Data (Performance Optimization)
+app.get('/api/all', async (req, res) => {
+  try {
+    const [skills, projects, about, cv, experiences, education, testimonials, categories] = await Promise.all([
+      Skill.find(),
+      Project.find(),
+      About.findOne(),
+      CV.findOne(),
+      Experience.find().sort({ order: 1 }),
+      Education.find().sort({ order: 1 }),
+      Testimonial.find().sort({ order: 1 }),
+      Category.find()
+    ]);
+
+    res.json({
+      skills,
+      projects,
+      about: about || { paragraphs: [] },
+      cv: cv || { cvUrl: '' },
+      experiences,
+      education,
+      testimonials,
+      categories
+    });
+  } catch (error) {
+    console.error('All data fetch error:', error);
+    res.status(500).json({ error: 'Failed to fetch all data' });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Viewer Backend server running at http://localhost:${PORT}`);
 });

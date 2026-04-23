@@ -1,29 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import API_BASE_URL from '../config';
-
-interface ExperienceData {
-  _id: string;
-  company: string;
-  role: string;
-  duration: string;
-  location: string;
-  points: string[];
-  order: number;
-}
+import { usePortfolio } from '../context/PortfolioContext';
 
 const Experience: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [experiences, setExperiences] = useState<ExperienceData[]>([]);
+  const { data } = usePortfolio();
+  const experiences = data?.experiences || [];
   const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    fetch(`${API_BASE_URL}/experiences`)
-      .then(res => res.json())
-      .then(data => {
-        setExperiences(data);
-      })
-      .catch(err => console.error('Error fetching experiences:', err));
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
