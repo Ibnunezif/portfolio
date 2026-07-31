@@ -1,6 +1,6 @@
 import React from 'react';
 import { usePortfolio } from '../context/PortfolioContext';
-import abdulbasitImg from '../assets/Abdulbasit.jpg';
+import abdulbasitImg from '../assets/ibnunezif.JPG';
 import { SiLeetcode } from 'react-icons/si';
 
 const Hero: React.FC = () => {
@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
                 <img 
                   src={abdulbasitImg} 
                   alt="Abdulbasit Nezif" 
-                  className="w-full h-full object-cover rounded-full"
+                  className="w-full h-full object-cover object-top rounded-full"
                 />
               </div>
             </div>
