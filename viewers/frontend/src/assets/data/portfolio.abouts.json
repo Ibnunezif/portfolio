@@ -1,0 +1,187 @@
+[{
+  "_id": {
+    "$oid": "69e89b3287eb54144aaf1397"
+  },
+  "paragraphs": [
+    {
+      "text": "I am Full-stack developer focused on backend systems and scalable architectures using Go, Laravel, Node.js, and databases.\nAlso builds cross-platform mobile apps with Flutter using Clean Architecture.",
+      "boldSegments": [
+        {
+          "start": 240,
+          "end": 243,
+          "_id": {
+            "$oid": "69e8e6d1623f6d00380f2353"
+          }
+        },
+        {
+          "start": 245,
+          "end": 252,
+          "_id": {
+            "$oid": "69e8e6d1623f6d00380f2354"
+          }
+        },
+        {
+          "start": 254,
+          "end": 261,
+          "_id": {
+            "$oid": "69e8e6d1623f6d00380f2355"
+          }
+        },
+        {
+          "start": 263,
+          "end": 270,
+          "_id": {
+            "$oid": "69e8e6d1623f6d00380f2356"
+          }
+        },
+        {
+          "start": 272,
+          "end": 282,
+          "_id": {
+            "$oid": "69e8e6d1623f6d00380f2357"
+          }
+        },
+        {
+          "start": 300,
+          "end": 305,
+          "_id": {
+            "$oid": "69e8e6d1623f6d00380f2358"
+          }
+        },
+        {
+          "start": 322,
+          "end": 339,
+          "_id": {
+            "$oid": "69e8e6d1623f6d00380f2359"
+          }
+        },
+        {
+          "start": 391,
+          "end": 409,
+          "_id": {
+            "$oid": "69e8e6d1623f6d00380f235a"
+          }
+        },
+        {
+          "start": 37,
+          "end": 52,
+          "_id": {
+            "$oid": "69e90237ed9cab2cfb0d4ac2"
+          }
+        },
+        {
+          "start": 57,
+          "end": 79,
+          "_id": {
+            "$oid": "69e90237ed9cab2cfb0d4ac3"
+          }
+        },
+        {
+          "start": 151,
+          "end": 200,
+          "_id": {
+            "$oid": "69e90237ed9cab2cfb0d4ac4"
+          }
+        },
+        {
+          "start": 86,
+          "end": 88,
+          "_id": {
+            "$oid": "69e90237ed9cab2cfb0d4ac5"
+          }
+        },
+        {
+          "start": 90,
+          "end": 97,
+          "_id": {
+            "$oid": "69e90237ed9cab2cfb0d4ac6"
+          }
+        },
+        {
+          "start": 99,
+          "end": 106,
+          "_id": {
+            "$oid": "69e90237ed9cab2cfb0d4ac7"
+          }
+        },
+        {
+          "start": 112,
+          "end": 121,
+          "_id": {
+            "$oid": "69e90237ed9cab2cfb0d4ac8"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "69e8e6d1623f6d00380f2350"
+      }
+    },
+    {
+      "text": "Built real-world systems including a Lab Scheduling System (Laravel) with booking validation and capacity control, and a School Management System for student and admin workflows.",
+      "boldSegments": [
+        {
+          "start": 37,
+          "end": 58,
+          "_id": {
+            "$oid": "69e90237ed9cab2cfb0d4aca"
+          }
+        },
+        {
+          "start": 121,
+          "end": 145,
+          "_id": {
+            "$oid": "69e90237ed9cab2cfb0d4acb"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "69e89f6a87eb54144aaf13a5"
+      }
+    },
+    {
+      "text": "Currently working on a mobile app to help users learn Afan Oromo and Amharic in English, focused on accessibility and user-friendly design.",
+      "boldSegments": [],
+      "_id": {
+        "$oid": "69e89f6a87eb54144aaf13a6"
+      }
+    },
+    {
+      "text": "Passionate about competitive programming, problem solving, and algorithms, with a focus on clean and efficient solutions using strong data structures. I have solved around 1000+ programming problems so far on different platforms.",
+      "boldSegments": [
+        {
+          "start": 17,
+          "end": 40,
+          "_id": {
+            "$oid": "69e90237ed9cab2cfb0d4ace"
+          }
+        },
+        {
+          "start": 172,
+          "end": 177,
+          "_id": {
+            "$oid": "69e90237ed9cab2cfb0d4acf"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "69e89f6a87eb54144aaf13a7"
+      }
+    },
+    {
+      "text": "Driven by continuous learning, I aim to grow as a software engineer, with a strong interest in backend development, scalable systems, and building impactful applications.",
+      "boldSegments": [
+        {
+          "start": 50,
+          "end": 67,
+          "_id": {
+            "$oid": "69e90237ed9cab2cfb0d4ad1"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "69e89f6a87eb54144aaf13a9"
+      }
+    }
+  ],
+  "__v": 8
+}]

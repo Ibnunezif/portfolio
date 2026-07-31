@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "69ea321d24d00edb227ab824"
+  },
+  "name": "Mobile",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69ea322624d00edb227ab825"
+  },
+  "name": "Backend",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69ea323224d00edb227ab826"
+  },
+  "name": "Fullstack",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69ea323724d00edb227ab827"
+  },
+  "name": "web",
+  "__v": 0
+}]

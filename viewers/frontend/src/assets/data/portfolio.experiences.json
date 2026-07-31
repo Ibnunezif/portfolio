@@ -1,0 +1,47 @@
+[{
+  "_id": {
+    "$oid": "69e8ebe179ea187e5b250446"
+  },
+  "company": "Revelo",
+  "role": "Frontend Developer",
+  "duration": "Feb 2026 - April 2026",
+  "location": "Remote",
+  "points": [
+    "Built responsive and intuitive user interfaces using React and Tailwind CSS.",
+    "Worked closely with designers to translate wireframes into high-fidelity code.",
+    "Improved frontend state management using Redux and Context API."
+  ],
+  "order": 3,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69e9ecebdde6736b4a9d0584"
+  },
+  "company": "Jimma University ICT Center Development Office",
+  "role": "Web Developer Intern",
+  "duration": "Jul 2025 – Sep 2025",
+  "location": "Jimma, Ethiopia",
+  "points": [
+    "Developed a role-based Lab Scheduling System using Laravel, MySQL, Bootstrap, and Blade, enabling teachers and lab assistants to manage laboratory booking requests efficiently.",
+    "Designed and optimized database schemas to handle lab availability, capacity, and request tracking, while providing admin control over users and system functionality.",
+    "Collaborated with peers using Git and GitHub, maintaining clean commits and following version control best practices."
+  ],
+  "order": 1,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69e9efa9dde6736b4a9d05b7"
+  },
+  "company": "A2SV - Eskalate (backed by google)",
+  "role": "Mobile App Developer Intern",
+  "duration": "Jul 2025 – Sep 2025",
+  "location": "Adama, Ethiopia (Hybrid)",
+  "points": [
+    "Built and integrated 3+ Flutter modules, including form handling, state management, and offline caching, for the LissanAI language learning platform focused on technical interview preparation, connecting with 5+ backend API endpoints to deliver AI-assisted learning and practice features.",
+    "Tested and refined features across 10–20 real-world scenarios, ensuring 100% functional accuracy and smooth offline performance under different usage conditions."
+  ],
+  "order": 0,
+  "__v": 0
+}]

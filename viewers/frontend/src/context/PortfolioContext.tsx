@@ -1,6 +1,15 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import API_BASE_URL from '../config';
-import { PortfolioData } from '../types';
+import React, { createContext, useContext, useState } from 'react';
+import type { ReactNode } from 'react';
+import type { PortfolioData } from '../types';
+
+import aboutsData from '../assets/data/portfolio.abouts.json';
+import categoriesData from '../assets/data/portfolio.categories.json';
+import cvsData from '../assets/data/portfolio.cvs.json';
+import educationsData from '../assets/data/portfolio.educations.json';
+import experiencesData from '../assets/data/portfolio.experiences.json';
+import projectsData from '../assets/data/portfolio.projects.json';
+import skillsData from '../assets/data/portfolio.skills.json';
+import testimonialsData from '../assets/data/portfolio.testimonials.json';
 
 interface PortfolioContextType {
   data: PortfolioData | null;
@@ -10,48 +19,38 @@ interface PortfolioContextType {
 
 const PortfolioContext = createContext<PortfolioContextType | undefined>(undefined);
 
-const CACHE_KEY = 'portfolio_data_cache';
+// Helper to normalize MongoDB exported JSON formats (handling {$oid: "..."})
+const formatJsonData = (data: any): any => {
+  if (Array.isArray(data)) {
+    return data.map(formatJsonData);
+  }
+  if (data !== null && typeof data === 'object') {
+    if (data.$oid) return data.$oid;
+    const newObj: any = {};
+    for (const key of Object.keys(data)) {
+      newObj[key] = formatJsonData(data[key]);
+    }
+    return newObj;
+  }
+  return data;
+};
+
+const initialData: PortfolioData = {
+  about: formatJsonData(aboutsData[0] || { paragraphs: [] }),
+  categories: formatJsonData(categoriesData),
+  cv: formatJsonData(cvsData[0] || { cvUrl: '' }),
+  education: formatJsonData(educationsData),
+  experiences: formatJsonData(experiencesData),
+  projects: formatJsonData(projectsData),
+  skills: formatJsonData(skillsData),
+  testimonials: formatJsonData(testimonialsData),
+};
 
 export const PortfolioProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [data, setData] = useState<PortfolioData | null>(() => {
-    // Immediate load from cache (instant appearance)
-    const cached = localStorage.getItem(CACHE_KEY);
-    if (cached) {
-      try {
-        return JSON.parse(cached);
-      } catch (e) {
-        return null;
-      }
-    }
-    return null;
-  });
-  const [loading, setLoading] = useState(!data);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`${API_BASE_URL}/all`);
-        if (!response.ok) throw new Error('Failed to fetch portfolio data');
-        const result = await response.json();
-        
-        // Update state and cache
-        setData(result);
-        localStorage.setItem(CACHE_KEY, JSON.stringify(result));
-        setError(null);
-      } catch (err: any) {
-        console.error('Fetch error:', err);
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const [data] = useState<PortfolioData>(initialData);
 
   return (
-    <PortfolioContext.Provider value={{ data, loading, error }}>
+    <PortfolioContext.Provider value={{ data, loading: false, error: null }}>
       {children}
     </PortfolioContext.Provider>
   );
@@ -64,3 +63,4 @@ export const usePortfolio = () => {
   }
   return context;
 };
+

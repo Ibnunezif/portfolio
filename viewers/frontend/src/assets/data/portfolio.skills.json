@@ -1,0 +1,81 @@
+[{
+  "_id": {
+    "$oid": "69e64da5030f1440e25d9176"
+  },
+  "name": "Node.js",
+  "category": "backend",
+  "level": 100,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69e64da5030f1440e25d9175"
+  },
+  "name": "Tailwind CSS",
+  "category": "frontend",
+  "level": 41,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69e64da5030f1440e25d9178"
+  },
+  "name": "PostgreSQL",
+  "category": "backend",
+  "level": 100,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69e64da5030f1440e25d9174"
+  },
+  "name": "TypeScript",
+  "category": "frontend",
+  "level": 100,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69e64da5030f1440e25d9177"
+  },
+  "name": "FastAPI",
+  "category": "backend",
+  "level": 100,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69e64da5030f1440e25d917b"
+  },
+  "name": "AWS",
+  "category": "tools",
+  "level": 100,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69e64da5030f1440e25d9179"
+  },
+  "name": "Docker",
+  "category": "tools",
+  "level": 100,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69e64da5030f1440e25d9173"
+  },
+  "name": "React",
+  "category": "frontend",
+  "level": 100,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69e64da5030f1440e25d917a"
+  },
+  "name": "Git",
+  "category": "tools",
+  "level": 100,
+  "__v": 0
+}]

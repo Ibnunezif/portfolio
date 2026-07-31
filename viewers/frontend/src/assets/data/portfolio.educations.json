@@ -1,0 +1,30 @@
+[{
+  "_id": {
+    "$oid": "69e8f38a2af9b49fdf13a46f"
+  },
+  "institution": "Adama Science and Technology University",
+  "degree": "Bachelor's Degree in Software Engineering",
+  "duration": "2023 – 2027",
+  "location": "Adama, Ethiopia",
+  "points": [
+    "CGPA: 3.75/4.0",
+    "Relevant courses: Software Architecture and Design, Database Systems, Computer Networking, Web Development, Mobile Application Development, Operating Systems"
+  ],
+  "order": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69e8f38a2af9b49fdf13a470"
+  },
+  "institution": "Africa to Silicon Valley (A2SV)",
+  "degree": "Data Structures and Algorithms",
+  "duration": "One-year training",
+  "location": "In-person · Adama, Ethiopia",
+  "points": [
+    "Completed a year-long competitive programming training, solving 1000+ problems on LeetCode, Codeforces and HackerRank.",
+    "Developed advanced problem-solving skills and deepened understanding of complex data structures and algorithmic paradigms."
+  ],
+  "order": 1,
+  "__v": 0
+}]

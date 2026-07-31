@@ -1,0 +1,24 @@
+[{
+  "_id": {
+    "$oid": "69e8f9bc8fa62ab4d09fbae1"
+  },
+  "name": "Remedan Jemal",
+  "role": "A2SVian and Vice peresident of CSEC-ASTU",
+  "content": "Abdulbasit is one of the most talented developers I've worked with. His ability to grasp complex architectures and implement them efficiently is rare. He's also a great mentor to others.",
+  "avatar": "https://media.licdn.com/dms/image/v2/D4E03AQEKhEtanQi6xQ/profile-displayphoto-crop_800_800/B4EZy6bnMQJAAI-/0/1772654328373?e=1778716800&v=beta&t=zrdW4kkDwZq6kdj99wDDakxdxbSkgMmjLNS-EbZ-esc",
+  "linkedInUrl": "https://www.linkedin.com/in/remedan-jemal-gemeda-35a691342/",
+  "order": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69ea303b24d00edb227ab823"
+  },
+  "name": "Belkis Elias",
+  "role": "Software developer and Mobile Application Developer",
+  "content": "I had the privilege of supervising Abdulbasit Nezif during his internship at Jimma University ICT Center, where he consistently demonstrated strong problem-solving ability, writing clean and efficient code while approaching tasks with clear logical thinking. He showed excellent adaptability to new challenges, maintained focus and discipline in his work, and proved to be reliable and self-motivated, with the ability to handle tasks independently while still collaborating effectively.",
+  "avatar": "https://media.licdn.com/dms/image/v2/D4E03AQGV5q6aLcWWUw/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1704964353363?e=1778716800&v=beta&t=_nwTGkSwoNwSgi47wjTFR23UC8ShW9mLDtJWTi_OZPI",
+  "linkedInUrl": "https://www.linkedin.com/in/abdulbasitnezif/details/recommendations/",
+  "order": 0,
+  "__v": 0
+}]

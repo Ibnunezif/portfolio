@@ -1,6 +1,6 @@
 import React from 'react';
 import { usePortfolio } from '../context/PortfolioContext';
-import { Paragraph } from '../types';
+import type { Paragraph } from '../types';
 
 const About: React.FC = () => {
   const { data } = usePortfolio();
