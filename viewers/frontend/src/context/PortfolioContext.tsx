@@ -43,7 +43,7 @@ const initialData: PortfolioData = {
   experiences: formatJsonData(experiencesData),
   projects: formatJsonData(projectsData),
   skills: formatJsonData(skillsData),
-  testimonials: formatJsonData(testimonialsData),
+  testimonials: formatJsonData(testimonialsData).sort((a: any, b: any) => (a.order ?? 0) - (b.order ?? 0)),
 };
 
 export const PortfolioProvider: React.FC<{ children: ReactNode }> = ({ children }) => {

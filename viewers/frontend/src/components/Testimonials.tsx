@@ -1,10 +1,23 @@
 import React, { useState } from 'react';
 import { usePortfolio } from '../context/PortfolioContext';
+import belkiesImg from '../assets/belkies.jfif';
+import remedanImg from '../assets/remedan.jfif';
+
+const avatarMap: Record<string, string> = {
+  belkies: belkiesImg,
+  remedan: remedanImg,
+};
 
 const Testimonials: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const { data } = usePortfolio();
   const testimonials = data?.testimonials || [];
+
+  const getAvatar = (avatarUrl: string | undefined) => {
+    if (!avatarUrl) return '';
+    if (avatarMap[avatarUrl]) return avatarMap[avatarUrl];
+    return avatarUrl;
+  };
 
   const next = () => {
     if (testimonials.length === 0) return;
@@ -59,7 +72,7 @@ const Testimonials: React.FC = () => {
               <div className="flex flex-col items-center">
                 <div className="w-16 h-16 rounded-full overflow-hidden mb-4 border-2 border-[#1B9FE5]/20 shadow-lg">
                   <img 
-                    src={testimonials[activeIndex]?.avatar} 
+                    src={getAvatar(testimonials[activeIndex]?.avatar)} 
                     alt={testimonials[activeIndex]?.name}
                     className="w-full h-full object-cover"
                   />
