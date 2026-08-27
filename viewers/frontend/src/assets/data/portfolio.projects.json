@@ -55,4 +55,26 @@
   "imageUrl": "",
   "category": "Fullstack",
   "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a8fee90f96cee4d80cdeb0d"
+  },
+  "title": "ShopAlly AI E-commerce Shopping Assistant",
+  "description": "An AI-driven e-commerce assistant built for Ethiopian shoppers, making international online shopping easier through ETB price conversion, bilingual Amharic/English support, trusted seller insights, and intelligent product search and comparison.\n",
+  "technologies": [
+    "Flutter",
+    "Clean Architecture",
+    "JSON",
+    "Next.js",
+    "MongoDB",
+    "go",
+    "Redux",
+    "Tailwind Css"
+  ],
+  "githubUrl": "https://github.com/ShopAlly-AI",
+  "liveUrl": "https://shop-ally-ai.vercel.app/",
+  "imageUrl": "https://res.cloudinary.com/dltagjsys/image/upload/v1787817591/portfolio_images/o7wvcjyuwedgbmbscapl.jpg",
+  "category": "Fullstack",
+  "__v": 0
 }]
