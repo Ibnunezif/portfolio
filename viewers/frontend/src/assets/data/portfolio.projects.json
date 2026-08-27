@@ -1,47 +1,58 @@
 [{
   "_id": {
-    "$oid": "69ea4d11f98baed70daf4544"
+    "$oid": "6a8fe1089e28c0dcc92fb04d"
   },
-  "title": "E-commerce Platform",
-  "description": "A full-featured e-commerce site with product search, cart, and payment integration.",
+  "title": "LIssan AI",
+  "description": "LissanAI is an AI-powered English communication coach built for Ethiopians. It helps users improve speaking, writing, grammar, and pronunciation through AI-powered conversations, mock interviews, writing assistance, personalized learning paths, and Amharic-supported explanations. It is available on web and mobile, powered by Go, Next.js, Flutter, MongoDB, and AI services.\n",
   "technologies": [
-    "React",
-    "TypeScript",
+    "go",
+    "mongodb",
+    "gemini ai",
+    "docker",
+    "swagger",
+    "jwt"
+  ],
+  "githubUrl": "https://github.com/A2SV/g6-lissanai/blob/main/backend/README.md",
+  "liveUrl": "https://lissanai.onrender.com/",
+  "imageUrl": "https://res.cloudinary.com/dltagjsys/image/upload/v1787814034/portfolio_images/k2oj1wqphipv91fhp8ff.png",
+  "category": "Backend",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a8fe3b2f96cee4d80cdeb0b"
+  },
+  "title": "Darutawhid medresa management system",
+  "description": "Darutawhid is a comprehensive School Management System that streamlines academic, financial, administrative, and parent-school communication. It is currently in production at Darutawhid Madrasa, Jimma, successfully managing around 1,000 users — 600 students, 350 families, and 50 faculty members.",
+  "technologies": [
     "Node.js",
+    "React.js",
     "MongoDB",
-    "Stripe"
+    "Docker",
+    "Express.js",
+    "JWT"
   ],
-  "githubUrl": "https://github.com",
-  "liveUrl": "https://example.com",
+  "githubUrl": "",
+  "liveUrl": "https://darutawhid.vercel.app/",
+  "imageUrl": "https://res.cloudinary.com/dltagjsys/image/upload/v1787814367/portfolio_images/txe6du9xdgduizjn5me7.png",
+  "category": "Fullstack",
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "69ea4d11f98baed70daf4546"
+    "$oid": "6a8fe9faf96cee4d80cdeb0c"
   },
-  "title": "Task Management CLI",
-  "description": "A powerful CLI tool for managing personal tasks and project workflows.",
+  "title": "University Lab scheduling System",
+  "description": "A Lab Scheduling and Reservation System designed to streamline laboratory management and booking. The system manages users, labs, departments, reservations, approval workflows, dashboards, reports, and notifications, providing an organized and efficient way to manage laboratory resources and scheduling.",
   "technologies": [
-    "TypeScript",
-    "Node.js",
-    "Commander.js"
+    "laravel",
+    "PHP",
+    "MySQL",
+    "git"
   ],
-  "githubUrl": "https://github.com",
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "69ea4d11f98baed70daf4545"
-  },
-  "title": "AI Image Generator",
-  "description": "An application that generates unique images from text prompts using a custom model.",
-  "technologies": [
-    "React",
-    "TypeScript",
-    "Python",
-    "FastAPI",
-    "OpenAI API"
-  ],
-  "githubUrl": "https://github.com",
+  "githubUrl": "https://github.com/BiluAilu/Intern-2025-JU-G1",
+  "liveUrl": "",
+  "imageUrl": "",
+  "category": "Fullstack",
   "__v": 0
 }]
