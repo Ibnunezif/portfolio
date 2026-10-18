@@ -1,80 +1,100 @@
-[{
-  "_id": {
-    "$oid": "6a8fe1089e28c0dcc92fb04d"
+[
+  {
+    "_id": {
+      "$oid": "6a8fe1089e28c0dcc92fb04d"
+    },
+    "title": "LIssan AI",
+    "description": "LissanAI is an AI-powered English communication coach built for Ethiopians. It helps users improve speaking, writing, grammar, and pronunciation through AI-powered conversations, mock interviews, writing assistance, personalized learning paths, and Amharic-supported explanations. It is available on web and mobile, powered by Go, Next.js, Flutter, MongoDB, and AI services.\n",
+    "technologies": [
+      "go",
+      "mongodb",
+      "gemini ai",
+      "docker",
+      "swagger",
+      "jwt"
+    ],
+    "githubUrl": "https://github.com/A2SV/g6-lissanai/blob/main/backend/README.md",
+    "liveUrl": "https://lissanai.onrender.com/",
+    "imageUrl": "https://res.cloudinary.com/dltagjsys/image/upload/v1787814034/portfolio_images/k2oj1wqphipv91fhp8ff.png",
+    "category": "Backend",
+    "__v": 0
   },
-  "title": "LIssan AI",
-  "description": "LissanAI is an AI-powered English communication coach built for Ethiopians. It helps users improve speaking, writing, grammar, and pronunciation through AI-powered conversations, mock interviews, writing assistance, personalized learning paths, and Amharic-supported explanations. It is available on web and mobile, powered by Go, Next.js, Flutter, MongoDB, and AI services.\n",
-  "technologies": [
-    "go",
-    "mongodb",
-    "gemini ai",
-    "docker",
-    "swagger",
-    "jwt"
-  ],
-  "githubUrl": "https://github.com/A2SV/g6-lissanai/blob/main/backend/README.md",
-  "liveUrl": "https://lissanai.onrender.com/",
-  "imageUrl": "https://res.cloudinary.com/dltagjsys/image/upload/v1787814034/portfolio_images/k2oj1wqphipv91fhp8ff.png",
-  "category": "Backend",
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6a8fe3b2f96cee4d80cdeb0b"
+  {
+    "_id": {
+      "$oid": "6a8fe3b2f96cee4d80cdeb0b"
+    },
+    "title": "Darutawhid medresa management system",
+    "description": "Darutawhid is a comprehensive School Management System that streamlines academic, financial, administrative, and parent-school communication. It is currently in production at Darutawhid Madrasa, Jimma, successfully managing around 1,000 users — 600 students, 350 families, and 50 faculty members.",
+    "technologies": [
+      "Node.js",
+      "React.js",
+      "MongoDB",
+      "Docker",
+      "Express.js",
+      "JWT"
+    ],
+    "githubUrl": "",
+    "liveUrl": "https://darutawhid.vercel.app/",
+    "imageUrl": "https://res.cloudinary.com/dltagjsys/image/upload/v1787814367/portfolio_images/txe6du9xdgduizjn5me7.png",
+    "category": "Fullstack",
+    "__v": 0
   },
-  "title": "Darutawhid medresa management system",
-  "description": "Darutawhid is a comprehensive School Management System that streamlines academic, financial, administrative, and parent-school communication. It is currently in production at Darutawhid Madrasa, Jimma, successfully managing around 1,000 users — 600 students, 350 families, and 50 faculty members.",
-  "technologies": [
-    "Node.js",
-    "React.js",
-    "MongoDB",
-    "Docker",
-    "Express.js",
-    "JWT"
-  ],
-  "githubUrl": "",
-  "liveUrl": "https://darutawhid.vercel.app/",
-  "imageUrl": "https://res.cloudinary.com/dltagjsys/image/upload/v1787814367/portfolio_images/txe6du9xdgduizjn5me7.png",
-  "category": "Fullstack",
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6a8fe9faf96cee4d80cdeb0c"
+  {
+    "_id": {
+      "$oid": "6a8fe9faf96cee4d80cdeb0c"
+    },
+    "title": "University Lab scheduling System",
+    "description": "A Lab Scheduling and Reservation System designed to streamline laboratory management and booking. The system manages users, labs, departments, reservations, approval workflows, dashboards, reports, and notifications, providing an organized and efficient way to manage laboratory resources and scheduling.",
+    "technologies": [
+      "laravel",
+      "PHP",
+      "MySQL",
+      "git"
+    ],
+    "githubUrl": "https://github.com/BiluAilu/Intern-2025-JU-G1",
+    "liveUrl": "",
+    "imageUrl": "",
+    "category": "Fullstack",
+    "__v": 0
   },
-  "title": "University Lab scheduling System",
-  "description": "A Lab Scheduling and Reservation System designed to streamline laboratory management and booking. The system manages users, labs, departments, reservations, approval workflows, dashboards, reports, and notifications, providing an organized and efficient way to manage laboratory resources and scheduling.",
-  "technologies": [
-    "laravel",
-    "PHP",
-    "MySQL",
-    "git"
-  ],
-  "githubUrl": "https://github.com/BiluAilu/Intern-2025-JU-G1",
-  "liveUrl": "",
-  "imageUrl": "",
-  "category": "Fullstack",
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6a8fee90f96cee4d80cdeb0d"
+  {
+    "_id": {
+      "$oid": "6a8fee90f96cee4d80cdeb0d"
+    },
+    "title": "ShopAlly AI E-commerce Shopping Assistant",
+    "description": "An AI-driven e-commerce assistant built for Ethiopian shoppers, making international online shopping easier through ETB price conversion, bilingual Amharic/English support, trusted seller insights, and intelligent product search and comparison.\n",
+    "technologies": [
+      "Flutter",
+      "Clean Architecture",
+      "JSON",
+      "Next.js",
+      "MongoDB",
+      "go",
+      "Redux",
+      "Tailwind Css"
+    ],
+    "githubUrl": "https://github.com/ShopAlly-AI",
+    "liveUrl": "https://shop-ally-ai.vercel.app/",
+    "imageUrl": "https://res.cloudinary.com/dltagjsys/image/upload/v1787817591/portfolio_images/o7wvcjyuwedgbmbscapl.jpg",
+    "category": "Fullstack",
+    "__v": 0
   },
-  "title": "ShopAlly AI E-commerce Shopping Assistant",
-  "description": "An AI-driven e-commerce assistant built for Ethiopian shoppers, making international online shopping easier through ETB price conversion, bilingual Amharic/English support, trusted seller insights, and intelligent product search and comparison.\n",
-  "technologies": [
-    "Flutter",
-    "Clean Architecture",
-    "JSON",
-    "Next.js",
-    "MongoDB",
-    "go",
-    "Redux",
-    "Tailwind Css"
-  ],
-  "githubUrl": "https://github.com/ShopAlly-AI",
-  "liveUrl": "https://shop-ally-ai.vercel.app/",
-  "imageUrl": "https://res.cloudinary.com/dltagjsys/image/upload/v1787817591/portfolio_images/o7wvcjyuwedgbmbscapl.jpg",
-  "category": "Fullstack",
-  "__v": 0
-}]
+  {
+    "_id": {
+      "$oid": "6ad4be5f0a6cb3d36ac50b1a"
+    },
+    "title": "PharmaLink",
+    "description": "A healthcare platform for medicine search, pharmacy location, price comparison, and inventory management.",
+    "technologies": [
+      "Go",
+      "Mongodb",
+      "Redit",
+      "JWT"
+    ],
+    "githubUrl": "https://github.com/PharmaLink1",
+    "liveUrl": "https://pharmalink-ethiopia.vercel.app/",
+    "imageUrl": "https://res.cloudinary.com/dltagjsys/image/upload/v1792327231/portfolio_images/sqeqzi3xgklm4ielsb3a.png",
+    "category": "Backend",
+    "__v": 0
+  }
+]
